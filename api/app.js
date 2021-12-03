@@ -3,8 +3,7 @@ const axios = require('axios');
 
 const app = express();
 
-const clientID = '';
-const apiKey = '';
+const apiKey = process.env.YELP_API_KEY;
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -48,7 +47,7 @@ async function getReview(id) {
 	try {
 		const result = await axios.get(`https://api.yelp.com/v3/businesses/${id}/reviews`, {
       headers: {
-        Authorization: `Bearer ${apiKey}` //${process.env.REACT_APP_API_KEY}
+        Authorization: `Bearer ${apiKey}`
       },
       params: {
         limit: 1,
