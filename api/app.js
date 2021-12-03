@@ -3,8 +3,8 @@ const axios = require('axios');
 
 const app = express();
 
-const clientID = 'BsRhkiDWVVdRbaJcbbb47g';
-const apiKey = 'yvxs-gO7AH0rIYApyqXyNK6GTpK46ck4bmPmT0fU0_6WwEVtRj3bsuVbN3BxpfaCgRF9Kkc9uqI3e1sMPxLgdqijy-K4cSypZoLP27kWZlAzPpBAndT4OqvukfSpYXYx';
+const clientID = '';
+const apiKey = '';
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -18,7 +18,7 @@ app.get('/:location/:term', async (req, res) => {
 	try {
 		const results = await axios.get('https://api.yelp.com/v3/businesses/search', {
       headers: {
-        Authorization: `Bearer ${apiKey}` //${process.env.REACT_APP_API_KEY}
+        Authorization: `Bearer ${apiKey}`
       },
       params: {
         location: location,
